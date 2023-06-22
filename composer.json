@@ -1,5 +1,5 @@
 {
-    "name": "Vladwww2015/laravel-admin-reporter",
+    "name": "laravel-admin-reporter/reporter",
     "description": "Exception reporter for laravel",
     "type": "library",
     "keywords": ["laravel-admin", "exception", "reporter"],
