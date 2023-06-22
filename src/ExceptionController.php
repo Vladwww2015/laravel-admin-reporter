@@ -84,6 +84,7 @@ class ExceptionController
             });
 
             $grid->disableCreation();
+            $grid->disableExport();
 
             $grid->actions(function (Grid\Displayers\Actions $actions) {
                 $actions->disableEdit();
