@@ -106,10 +106,6 @@ class Reporter extends Extension
             return true;
         } catch (Throwable $e) {
             return false;
-<<<<<<< HEAD
-            //dd($e);
-=======
->>>>>>> d3ab4a8 (Fix some length of field in database)
         }
     }
 }
