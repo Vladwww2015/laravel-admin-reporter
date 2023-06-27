@@ -66,14 +66,15 @@ class Reporter extends Extension
         ];
 
         $data = $this->stringify($data);
-
+        
+        $data['file'] =  substr($data['file'], 0, 500);
+        $data['type'] =  substr($data['type'], 0, 255);
+        $data['message'] =  substr($data['message'], 0, 3000);
+        $data['path'] =  substr($data['trace'], 0, 3000);
         try {
             $this->store($data);
         } catch (Throwable $e) {
-//            $result = $this->reportException($e);
         }
-
-//        return $result;
     }
 
     /**
@@ -105,7 +106,10 @@ class Reporter extends Extension
             return true;
         } catch (Throwable $e) {
             return false;
+<<<<<<< HEAD
             //dd($e);
+=======
+>>>>>>> d3ab4a8 (Fix some length of field in database)
         }
     }
 }

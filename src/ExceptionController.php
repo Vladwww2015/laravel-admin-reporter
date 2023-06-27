@@ -105,11 +105,15 @@ class ExceptionController
 
             $exception = ExceptionModel::findOrFail($id);
             $trace = "#0 {$exception->file}({$exception->line})\n";
-            $frames = (new Parser($trace.$exception->trace))->parse();
+
+            try {
+                $frames = (new Parser($trace.$exception->trace))->parse();
+                array_pop($frames);
+            } catch (\Exception $e) {
+                $frames = [];
+            }
             $cookies = json_decode($exception->cookies, true);
             $headers = json_decode($exception->headers, true);
-
-            array_pop($frames);
 
             $view = view('laravel-admin-reporter::exception', compact('exception', 'frames', 'cookies', 'headers'));
 
